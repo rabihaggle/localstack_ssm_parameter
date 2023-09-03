@@ -1,7 +1,36 @@
 # localstack_ssm_parameter
 Explicar el funcionamiento de tf con ssm parameter e ignore_changes
 
+## Como ver los parametros ssm creados en Localstack
+Con el siguiente comando:_
 
+```aws --endpoint-url=http://localhost:4566 ssm describe-parameters```
+
+Lo que vamos a poder es ver todos los parametros creados desde terraform
+
+```
+{
+    "Parameters": [
+        {
+            "Name": "/lab/service/ssm_parameter_ignorechanges",
+            "Type": "String",
+            "LastModifiedDate": "2023-09-03T20:08:32.269000+02:00",
+            "LastModifiedUser": "N/A",
+            "Version": 1,
+            "DataType": "text"
+        },
+        {
+            "Name": "/lab/service/ssm_parameter",
+            "Type": "String",
+            "LastModifiedDate": "2023-09-03T20:08:32.275000+02:00",
+            "LastModifiedUser": "N/A",
+            "Version": 1,
+            "DataType": "text"
+        }
+    ]
+}
+```
+Vamos a ver dos parametros generados de los cuales /lab/service/ssm_parameter_ignorechanges es el que no le van a afectar los cambios en el value y /lab/service/ssm_parameter todo cambio en value va a aplicar cambios cuando hagamos un apply desde terraform.
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements

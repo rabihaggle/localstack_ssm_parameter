@@ -3,9 +3,9 @@ resource "aws_ssm_parameter" "foo_v1" {
   type  = "String"
   value = "esto_es_una variable"
 
-lifecycle {
-  ignore_changes = [ value ]
-}
+  lifecycle {
+    ignore_changes = [value]
+  }
 
 }
 
