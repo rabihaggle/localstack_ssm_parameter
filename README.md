@@ -32,6 +32,15 @@ Lo que vamos a poder es ver todos los parametros creados desde terraform
 ```
 Vamos a ver dos parametros generados de los cuales /lab/service/ssm_parameter_ignorechanges es el que no le van a afectar los cambios en el value y /lab/service/ssm_parameter todo cambio en value va a aplicar cambios cuando hagamos un apply desde terraform.
 
+Como vamos a cambiar los parametros
+```
+aws ssm --endpoint-url=http://localhost:4566  put-parameter \                                                                                       ─╯
+    --name "parameter-name" \
+    --value "value" \
+    --type String \
+    --overwrite
+```
+
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
